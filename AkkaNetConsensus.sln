@@ -4,10 +4,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AkkaNetConsensus", "AkkaNet
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "logs", "logs", "{4B5B9745-51E6-4926-8C5E-CD5C85259BD4}"
 	ProjectSection(SolutionItems) = preProject
-		logs\bench_1000_500-2000ms.txt = logs\bench_1000_500-2000ms.txt
 		logs\bench_1000_500ms_with-crashes.txt = logs\bench_1000_500ms_with-crashes.txt
 		logs\bench_1000-2000_500ms.txt = logs\bench_1000-2000_500ms.txt
-		logs\benchmarks_dotnet.txt = logs\benchmarks_dotnet.txt
+		logs\bench_1500_500-2000ms.txt = logs\bench_1500_500-2000ms.txt
 	EndProjectSection
 EndProject
 Global

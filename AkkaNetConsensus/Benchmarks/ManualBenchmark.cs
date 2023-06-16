@@ -3,15 +3,16 @@
 public static class ManualBenchmark
 {
     private const int Iterations = 10;
+    private const string LogsDirectory = "../../../../logs";
 
     static ManualBenchmark()
     {
-        Directory.CreateDirectory("../../../../logs");
+        Directory.CreateDirectory(LogsDirectory);
     }
     
     public static async Task RunSystemSizeBench()
     {
-        await using var sw = new StreamWriter("logs/bench_1000-2000_500ms.txt");
+        await using var sw = new StreamWriter(Path.Combine(LogsDirectory, "bench_1000-2000_500ms.txt"));
         
         for (int systemSize = 1000; systemSize <= 2000; systemSize += 50)
         {
@@ -31,7 +32,7 @@ public static class ManualBenchmark
     
     public static async Task RunLeaderLifetimeBench()
     {
-        await using var sw = new StreamWriter("logs/bench_1000_500-2000ms.txt");
+        await using var sw = new StreamWriter(Path.Combine(LogsDirectory, "bench_1500_500-2000ms.txt"));
         
         for (int lifetime = 500; lifetime <= 2000; lifetime += 50)
         {
@@ -40,7 +41,7 @@ public static class ManualBenchmark
             
             for (int i = 0; i < Iterations; i++)
             {
-                var result = await Runner.Consensus(1000, lifetime, failureProb: 0, logMessages: false);
+                var result = await Runner.Consensus(1500, lifetime, failureProb: 0, logMessages: false);
                 total += result.TotalMilliseconds;
             }
             
@@ -51,9 +52,9 @@ public static class ManualBenchmark
     
     public static async Task RunCrashProbabilityBench()
     {
-        await using var sw = new StreamWriter("logs/bench_1000_500ms_with-crashes.txt");
+        await using var sw = new StreamWriter(Path.Combine(LogsDirectory, "bench_1000_500ms_with-crashes.txt"));
         
-        for (double crashProb = 0.0; crashProb <= 1.04; crashProb += 0.05)
+        for (double crashProb = 0.0; crashProb <= 1.01; crashProb += 0.05)
         {
             Console.Write($"{crashProb:0.##} - ");
             double total = 0;

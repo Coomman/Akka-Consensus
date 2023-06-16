@@ -1,0 +1,211 @@
+// * Detailed results *
+CosensusBenchmark.Consensus: DefaultJob [SystemSize=1000, LeaderLifetime=500]
+Runtime = .NET 7.0.5 (7.0.523.17405), X64 RyuJIT AVX2; GC = Concurrent Workstation
+Mean = 1.736 s, StdErr = 0.009 s (0.54%), N = 30, StdDev = 0.051 s
+Min = 1.632 s, Q1 = 1.706 s, Median = 1.715 s, Q3 = 1.771 s, Max = 1.831 s
+IQR = 0.066 s, LowerFence = 1.607 s, UpperFence = 1.870 s
+ConfidenceInterval = [1.702 s; 1.771 s] (CI 99.9%), Margin = 0.034 s (1.97% of Mean)
+Skewness = 0.09, Kurtosis = 2.23, MValue = 2
+-------------------- Histogram --------------------
+[1.616 s ; 1.659 s) | @@
+[1.659 s ; 1.723 s) | @@@@@@@@@@@@@@
+[1.723 s ; 1.791 s) | @@@@@@@@@@
+[1.791 s ; 1.836 s) | @@@@
+---------------------------------------------------
+
+CosensusBenchmark.Consensus: DefaultJob [SystemSize=1000, LeaderLifetime=1000]
+Runtime = .NET 7.0.5 (7.0.523.17405), X64 RyuJIT AVX2; GC = Concurrent Workstation
+Mean = 1.437 s, StdErr = 0.008 s (0.53%), N = 26, StdDev = 0.039 s
+Min = 1.378 s, Q1 = 1.410 s, Median = 1.444 s, Q3 = 1.459 s, Max = 1.518 s
+IQR = 0.049 s, LowerFence = 1.336 s, UpperFence = 1.533 s
+ConfidenceInterval = [1.409 s; 1.465 s] (CI 99.9%), Margin = 0.028 s (1.97% of Mean)
+Skewness = 0.17, Kurtosis = 2.29, MValue = 2
+-------------------- Histogram --------------------
+[1.378 s ; 1.412 s) | @@@@@@@@@
+[1.412 s ; 1.474 s) | @@@@@@@@@@@@@@@
+[1.474 s ; 1.535 s) | @@
+---------------------------------------------------
+
+CosensusBenchmark.Consensus: DefaultJob [SystemSize=1000, LeaderLifetime=1500]
+Runtime = .NET 7.0.5 (7.0.523.17405), X64 RyuJIT AVX2; GC = Concurrent Workstation
+Mean = 1.363 s, StdErr = 0.008 s (0.57%), N = 45, StdDev = 0.052 s
+Min = 1.311 s, Q1 = 1.327 s, Median = 1.339 s, Q3 = 1.393 s, Max = 1.490 s
+IQR = 0.066 s, LowerFence = 1.228 s, UpperFence = 1.491 s
+ConfidenceInterval = [1.336 s; 1.390 s] (CI 99.9%), Margin = 0.027 s (2.00% of Mean)
+Skewness = 1.26, Kurtosis = 3.41, MValue = 2.21
+-------------------- Histogram --------------------
+[1.310 s ; 1.348 s) | @@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+[1.348 s ; 1.406 s) | @@@@@@@@@
+[1.406 s ; 1.460 s) | @@
+[1.460 s ; 1.498 s) | @@@@@
+---------------------------------------------------
+
+CosensusBenchmark.Consensus: DefaultJob [SystemSize=1500, LeaderLifetime=500]
+Runtime = .NET 7.0.5 (7.0.523.17405), X64 RyuJIT AVX2; GC = Concurrent Workstation
+Mean = 7.609 s, StdErr = 0.039 s (0.51%), N = 22, StdDev = 0.182 s
+Min = 6.971 s, Q1 = 7.564 s, Median = 7.603 s, Q3 = 7.725 s, Max = 7.896 s
+IQR = 0.161 s, LowerFence = 7.323 s, UpperFence = 7.966 s
+ConfidenceInterval = [7.461 s; 7.757 s] (CI 99.9%), Margin = 0.148 s (1.95% of Mean)
+Skewness = -1.67, Kurtosis = 7.34, MValue = 2
+-------------------- Histogram --------------------
+[6.886 s ; 7.057 s) | @
+[7.057 s ; 7.227 s) | 
+[7.227 s ; 7.430 s) | 
+[7.430 s ; 7.584 s) | @@@@@
+[7.584 s ; 7.755 s) | @@@@@@@@@@@@@
+[7.755 s ; 7.917 s) | @@@
+---------------------------------------------------
+
+CosensusBenchmark.Consensus: DefaultJob [SystemSize=1500, LeaderLifetime=1000]
+Runtime = .NET 7.0.5 (7.0.523.17405), X64 RyuJIT AVX2; GC = Concurrent Workstation
+Mean = 4.432 s, StdErr = 0.019 s (0.44%), N = 15, StdDev = 0.075 s
+Min = 4.299 s, Q1 = 4.387 s, Median = 4.448 s, Q3 = 4.482 s, Max = 4.544 s
+IQR = 0.095 s, LowerFence = 4.245 s, UpperFence = 4.624 s
+ConfidenceInterval = [4.352 s; 4.512 s] (CI 99.9%), Margin = 0.080 s (1.81% of Mean)
+Skewness = -0.21, Kurtosis = 1.92, MValue = 2
+-------------------- Histogram --------------------
+[4.293 s ; 4.554 s) | @@@@@@@@@@@@@@@
+---------------------------------------------------
+
+CosensusBenchmark.Consensus: DefaultJob [SystemSize=1500, LeaderLifetime=1500]
+Runtime = .NET 7.0.5 (7.0.523.17405), X64 RyuJIT AVX2; GC = Concurrent Workstation
+Mean = 3.750 s, StdErr = 0.018 s (0.49%), N = 18, StdDev = 0.078 s
+Min = 3.630 s, Q1 = 3.691 s, Median = 3.751 s, Q3 = 3.806 s, Max = 3.908 s
+IQR = 0.115 s, LowerFence = 3.518 s, UpperFence = 3.979 s
+ConfidenceInterval = [3.678 s; 3.823 s] (CI 99.9%), Margin = 0.072 s (1.93% of Mean)
+Skewness = 0.16, Kurtosis = 1.99, MValue = 2
+-------------------- Histogram --------------------
+[3.625 s ; 3.702 s) | @@@@@@
+[3.702 s ; 3.821 s) | @@@@@@@@@@
+[3.821 s ; 3.921 s) | @@
+---------------------------------------------------
+
+CosensusBenchmark.Consensus: DefaultJob [SystemSize=2000, LeaderLifetime=500]
+Runtime = .NET 7.0.5 (7.0.523.17405), X64 RyuJIT AVX2; GC = Concurrent Workstation
+Mean = 24.550 s, StdErr = 0.158 s (0.64%), N = 100, StdDev = 1.580 s
+Min = 20.505 s, Q1 = 23.501 s, Median = 24.532 s, Q3 = 25.769 s, Max = 27.901 s
+IQR = 2.268 s, LowerFence = 20.099 s, UpperFence = 29.170 s
+ConfidenceInterval = [24.015 s; 25.086 s] (CI 99.9%), Margin = 0.536 s (2.18% of Mean)
+Skewness = -0.11, Kurtosis = 2.53, MValue = 2.33
+-------------------- Histogram --------------------
+[20.058 s ; 20.952 s) | @
+[20.952 s ; 22.089 s) | @@@@@@
+[22.089 s ; 23.223 s) | @@@@@@@@@@@@
+[23.223 s ; 24.116 s) | @@@@@@@@@@@@@@@@@@@@@@@@
+[24.116 s ; 25.106 s) | @@@@@@@@@@@@@@@@@@
+[25.106 s ; 26.000 s) | @@@@@@@@@@@@@@@@@@@@@@
+[26.000 s ; 27.109 s) | @@@@@@@@@@@
+[27.109 s ; 28.002 s) | @@@@@@
+---------------------------------------------------
+
+CosensusBenchmark.Consensus: DefaultJob [SystemSize=2000, LeaderLifetime=1000]
+Runtime = .NET 7.0.5 (7.0.523.17405), X64 RyuJIT AVX2; GC = Concurrent Workstation
+Mean = 13.985 s, StdErr = 0.079 s (0.56%), N = 42, StdDev = 0.511 s
+Min = 12.829 s, Q1 = 13.685 s, Median = 13.979 s, Q3 = 14.320 s, Max = 15.051 s
+IQR = 0.635 s, LowerFence = 12.733 s, UpperFence = 15.272 s
+ConfidenceInterval = [13.705 s; 14.264 s] (CI 99.9%), Margin = 0.280 s (2.00% of Mean)
+Skewness = -0.17, Kurtosis = 2.67, MValue = 2
+-------------------- Histogram --------------------
+[12.636 s ; 13.095 s) | @@
+[13.095 s ; 13.409 s) | @@@
+[13.409 s ; 13.850 s) | @@@@@@@@@
+[13.850 s ; 14.236 s) | @@@@@@@@@@@@@@@
+[14.236 s ; 14.631 s) | @@@@@@@@@@
+[14.631 s ; 15.136 s) | @@@
+---------------------------------------------------
+
+CosensusBenchmark.Consensus: DefaultJob [SystemSize=2000, LeaderLifetime=1500]
+Runtime = .NET 7.0.5 (7.0.523.17405), X64 RyuJIT AVX2; GC = Concurrent Workstation
+Mean = 10.043 s, StdErr = 0.048 s (0.47%), N = 15, StdDev = 0.184 s
+Min = 9.749 s, Q1 = 9.907 s, Median = 10.048 s, Q3 = 10.177 s, Max = 10.393 s
+IQR = 0.270 s, LowerFence = 9.501 s, UpperFence = 10.583 s
+ConfidenceInterval = [9.846 s; 10.240 s] (CI 99.9%), Margin = 0.197 s (1.96% of Mean)
+Skewness = -0.02, Kurtosis = 1.97, MValue = 2
+-------------------- Histogram --------------------
+[ 9.743 s ; 10.013 s) | @@@@@
+[10.013 s ; 10.421 s) | @@@@@@@@@@
+---------------------------------------------------
+
+// * Summary *
+
+BenchmarkDotNet=v0.13.5, OS=Windows 10 (10.0.19045.3086/22H2/2022Update)
+Intel Core i9-9900K CPU 3.60GHz (Coffee Lake), 1 CPU, 16 logical and 8 physical cores
+.NET SDK=7.0.203
+  [Host]     : .NET 7.0.5 (7.0.523.17405), X64 RyuJIT AVX2
+  DefaultJob : .NET 7.0.5 (7.0.523.17405), X64 RyuJIT AVX2
+
+
+|    Method | SystemSize | LeaderLifetime |     Mean |    Error |   StdDev |   Median |
+|---------- |----------- |--------------- |---------:|---------:|---------:|---------:|
+| Consensus |       1000 |            500 |  1.736 s | 0.0343 s | 0.0513 s |  1.715 s |
+| Consensus |       1000 |           1000 |  1.437 s | 0.0283 s | 0.0388 s |  1.444 s |
+| Consensus |       1000 |           1500 |  1.363 s | 0.0272 s | 0.0517 s |  1.339 s |
+| Consensus |       1500 |            500 |  7.609 s | 0.1482 s | 0.1820 s |  7.603 s |
+| Consensus |       1500 |           1000 |  4.432 s | 0.0800 s | 0.0749 s |  4.448 s |
+| Consensus |       1500 |           1500 |  3.750 s | 0.0724 s | 0.0775 s |  3.751 s |
+| Consensus |       2000 |            500 | 24.550 s | 0.5359 s | 1.5801 s | 24.532 s |
+| Consensus |       2000 |           1000 | 13.985 s | 0.2795 s | 0.5111 s | 13.979 s |
+| Consensus |       2000 |           1500 | 10.043 s | 0.1970 s | 0.1843 s | 10.048 s |
+
+
+======================================================================================================================
+
+
+// * Detailed results *
+CosensusBenchmark.ConsensusWithCrashes: DefaultJob [FailureProbability=0]
+Runtime = .NET 7.0.5 (7.0.523.17405), X64 RyuJIT AVX2; GC = Concurrent Workstation
+Mean = 2.058 s, StdErr = 0.012 s (0.57%), N = 53, StdDev = 0.085 s
+Min = 1.886 s, Q1 = 2.011 s, Median = 2.079 s, Q3 = 2.104 s, Max = 2.236 s
+IQR = 0.092 s, LowerFence = 1.873 s, UpperFence = 2.242 s
+ConfidenceInterval = [2.018 s; 2.099 s] (CI 99.9%), Margin = 0.041 s (1.98% of Mean)
+Skewness = -0.16, Kurtosis = 2.44, MValue = 2
+-------------------- Histogram --------------------
+[1.872 s ; 1.934 s) | @@@@@
+[1.934 s ; 1.983 s) | @@@@@
+[1.983 s ; 2.043 s) | @@@@@@@@@@@@@@
+[2.043 s ; 2.118 s) | @@@@@@@@@@@@@@@@@@@
+[2.118 s ; 2.203 s) | @@@@@@@@
+[2.203 s ; 2.266 s) | @@
+---------------------------------------------------
+
+CosensusBenchmark.ConsensusWithCrashes: DefaultJob [FailureProbability=0,1]
+Runtime = .NET 7.0.5 (7.0.523.17405), X64 RyuJIT AVX2; GC = Concurrent Workstation
+Mean = 1.178 s, StdErr = 0.002 s (0.19%), N = 14, StdDev = 0.008 s
+Min = 1.166 s, Q1 = 1.172 s, Median = 1.177 s, Q3 = 1.183 s, Max = 1.195 s
+IQR = 0.011 s, LowerFence = 1.155 s, UpperFence = 1.200 s
+ConfidenceInterval = [1.169 s; 1.188 s] (CI 99.9%), Margin = 0.009 s (0.79% of Mean)
+Skewness = 0.33, Kurtosis = 2.07, MValue = 2
+-------------------- Histogram --------------------
+[1.161 s ; 1.200 s) | @@@@@@@@@@@@@@
+---------------------------------------------------
+
+CosensusBenchmark.ConsensusWithCrashes: DefaultJob [FailureProbability=1]
+Runtime = .NET 7.0.5 (7.0.523.17405), X64 RyuJIT AVX2; GC = Concurrent Workstation
+Mean = 530.786 ms, StdErr = 3.059 ms (0.58%), N = 62, StdDev = 24.085 ms
+Min = 475.109 ms, Q1 = 533.915 ms, Median = 540.471 ms, Q3 = 544.778 ms, Max = 557.491 ms
+IQR = 10.863 ms, LowerFence = 517.620 ms, UpperFence = 561.073 ms
+ConfidenceInterval = [520.211 ms; 541.361 ms] (CI 99.9%), Margin = 10.575 ms (1.99% of Mean)
+Skewness = -1.38, Kurtosis = 3.26, MValue = 2
+-------------------- Histogram --------------------
+[472.869 ms ; 488.843 ms) | @@@@@@@@@@
+[488.843 ms ; 501.305 ms) | @@
+[501.305 ms ; 517.279 ms) | 
+[517.279 ms ; 532.201 ms) | 
+[532.201 ms ; 548.175 ms) | @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+[548.175 ms ; 565.478 ms) | @@@@@@
+---------------------------------------------------
+
+// * Summary *
+
+BenchmarkDotNet=v0.13.5, OS=Windows 10 (10.0.19045.3086/22H2/2022Update)
+Intel Core i9-9900K CPU 3.60GHz (Coffee Lake), 1 CPU, 16 logical and 8 physical cores
+.NET SDK=7.0.203
+  [Host]     : .NET 7.0.5 (7.0.523.17405), X64 RyuJIT AVX2
+  DefaultJob : .NET 7.0.5 (7.0.523.17405), X64 RyuJIT AVX2
+
+
+|               Method | FailureProbability |       Mean |    Error |   StdDev |     Median |
+|--------------------- |------------------- |-----------:|---------:|---------:|-----------:|
+| ConsensusWithCrashes |                  0 | 2,058.4 ms | 40.73 ms | 85.01 ms | 2,078.7 ms |
+| ConsensusWithCrashes |                0.1 | 1,178.2 ms |  9.34 ms |  8.28 ms | 1,177.1 ms |
+| ConsensusWithCrashes |                  1 |   530.8 ms | 10.58 ms | 24.08 ms |   540.5 ms |

@@ -12,8 +12,21 @@ public static class Runner
         
         using var system = ActorSystem.Create("Local");
 
-        var actor = system.ActorOf(ConsensusActor.Props(systemSize, systemSize / 2 - 1, failureProb, logMessages), "Consensus");
-        
+        var actor = system.ActorOf(
+            ConsensusActor.Props(systemSize, systemSize / 2 - 1, failureProb, logMessages),
+            "Consensus");
+
+        var res = await Routine(random, actor, systemSize, leaderLifetime);
+
+        await Task.Delay(500);
+        actor.Tell(new SentMessagesMsg());
+        await Task.Delay(100);
+
+        return res;
+    }
+
+    private static async Task<TimeSpan> Routine(Random random, IActorRef actor, int systemSize, int leaderLifetime)
+    {
         while (true)
         {
             var newLeader = random.Next(0, systemSize / 2 + 1);

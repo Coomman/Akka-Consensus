@@ -27,7 +27,7 @@ public class FaultProneActor : SynodActor
         _hasFailed = Random.Shared.NextDouble() < _failureProb;
         if (_hasFailed)
         {
-            Logger.Error("HAS CRASHED");
+            //Logger.Error("HAS CRASHED");
             return false;
         }
 

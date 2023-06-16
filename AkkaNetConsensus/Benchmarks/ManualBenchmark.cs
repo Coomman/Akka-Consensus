@@ -2,7 +2,7 @@
 
 public static class ManualBenchmark
 {
-    private const int Iterations = 10;
+    private const int Iterations = 5;
     private const string LogsDirectory = "../../../../logs";
 
     static ManualBenchmark()

@@ -13,6 +13,7 @@ public class ConsensusActor : ReceiveActor
     private readonly Stopwatch _sw;
 
     private string _lastLog = string.Empty;
+    private readonly List<int> _messagesSent = new();
     
     public ConsensusActor(int totalProcesses, int faultProneProcesses, double failureProb, bool logMessages)
     {
@@ -27,6 +28,7 @@ public class ConsensusActor : ReceiveActor
 
         Receive<LaunchMsg>(OnLaunch);
         Receive<DecideMsg>(OnDecide);
+        Receive<SentMessagesMsg>(OnSentMessages);
     }
     
     public static Props Props(int totalProcesses, int faultProneProcesses, double failureProb, bool logMessages = true)
@@ -43,10 +45,9 @@ public class ConsensusActor : ReceiveActor
         }
 
         var leader = _actors[message.LeaderIndex];
-        Log($"New leader is {leader.Path.Name}", LogLevel.InfoLevel);
+        //Log($"New leader is {leader.Path.Name}", LogLevel.InfoLevel);
         
         leader.Tell(new ProposeMsg(), Self);
-
         Sender.Tell(new ConsensusMsg(false, _sw.Elapsed));
     }
 
@@ -54,7 +55,14 @@ public class ConsensusActor : ReceiveActor
     {
         _sw.Stop();
         
-        Log($"Decided value {message.Value} in {_sw.Elapsed:g}", LogLevel.WarningLevel);
+        _messagesSent.Add(message.MessagesSent);
+        
+        //_logger.Warning($"{Sender.Path.Name} decided value {message.Value} in {_sw.Elapsed:g}. Sent {message.MessagesSent} messages");
+    }
+
+    private void OnSentMessages(SentMessagesMsg message)
+    {
+        _logger.Warning($"Sent {(int) _messagesSent.Average()} messages on {_messagesSent.Count} processes");
     }
 
     private void Log(string log, LogLevel logLevel)

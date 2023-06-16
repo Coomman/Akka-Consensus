@@ -8,7 +8,9 @@ public abstract class SynodActor : ReceiveActor
 {
     protected readonly ILoggingAdapter Logger = Context.GetLogger();
     protected readonly bool LogMessages;
-    
+
+    private int _messagesSent;
+
     private readonly int _i;
     private readonly int _n;
     private readonly int _quorum;
@@ -54,7 +56,7 @@ public abstract class SynodActor : ReceiveActor
     {
         if (_decidedValue is not null)
         {
-            Context.Parent.Tell(new DecideMsg(_decidedValue.Value), Self);
+            Context.Parent.Tell(new DecideMsg(_decidedValue.Value, _messagesSent), Self);
             return;
         }
 
@@ -89,6 +91,8 @@ public abstract class SynodActor : ReceiveActor
             _readBallot = message.Ballot;
             Sender.Tell(new GatherMsg( _i, message.Ballot, _imposeBallot, _estimate), Self);
         }
+        
+        _messagesSent++;
     }
 
     private void OnGather(GatherMsg message)
@@ -128,6 +132,8 @@ public abstract class SynodActor : ReceiveActor
             _imposeBallot = message.Ballot;
             Sender.Tell(new AckMsg(message.Ballot), Self);
         }
+
+        _messagesSent++;
     }
 
     private void OnAck(AckMsg message)
@@ -140,7 +146,7 @@ public abstract class SynodActor : ReceiveActor
 
         if (++_acksCount >= _quorum)
         {
-            Broadcast(new DecideMsg(_proposal!.Value));
+            Broadcast(new DecideMsg(_proposal!.Value, _messagesSent));
         }
     }
 
@@ -153,8 +159,8 @@ public abstract class SynodActor : ReceiveActor
             return;
 
         _decidedValue = message.Value;
-            
-        Context.Parent.Tell(message, Self);
+        
+        Context.Parent.Tell(message with { MessagesSent = _messagesSent }, Self);
         Broadcast(message);
     }
 
@@ -172,6 +178,7 @@ public abstract class SynodActor : ReceiveActor
     private void Broadcast<T>(T message)
     {
         Context.ActorSelection("../*").Tell(message, Self);
+        _messagesSent += _n;
     }
     
     protected abstract bool BeforeReceive<T>(T message);

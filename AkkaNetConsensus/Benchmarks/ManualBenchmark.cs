@@ -6,7 +6,7 @@ public static class ManualBenchmark
 
     static ManualBenchmark()
     {
-        Directory.CreateDirectory("logs");
+        Directory.CreateDirectory("../../../../logs");
     }
     
     public static async Task RunSystemSizeBench()

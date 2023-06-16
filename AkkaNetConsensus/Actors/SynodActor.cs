@@ -21,12 +21,12 @@ public abstract class SynodActor : ReceiveActor
     private int _imposeBallot;
 
     private (int? est, int estBallot)[] _states;
+    
     private int _gathersCount;
     private int _acksCount;
-
-    private int? _decidedValue;
-
     private bool _canPropose = true;
+    
+    private int? _decidedValue;
 
     protected SynodActor(int i, int n, bool logMessages)
     {
@@ -38,9 +38,6 @@ public abstract class SynodActor : ReceiveActor
         _initialProposal = Random.Shared.Next(0, 2);
         
         _ballot = i - n;
-        _proposal = null;
-        _estimate = null;
-        _readBallot = 0;
         _imposeBallot = i - n;
         _states = Enumerable.Repeat(0, n).Select(_ => ((int?)null, 0)).ToArray();
 
@@ -70,11 +67,12 @@ public abstract class SynodActor : ReceiveActor
         _proposal = _initialProposal;
         _ballot += _n;
         _states = Enumerable.Repeat(0, _n).Select(_ => ((int?)null, 0)).ToArray();
-        _acksCount = 0;
+        
         _gathersCount = 0;
+        _acksCount = 0;
+        _canPropose = false;
 
         Broadcast(new ReadMsg(_ballot));
-        _canPropose = false;
     }
 
     private void OnRead(ReadMsg message)
@@ -101,8 +99,6 @@ public abstract class SynodActor : ReceiveActor
         if (message.Ballot != _ballot)
             return;
 
-        ++_gathersCount;
-        
         _states[message.Index] = (message.Est, message.EstBallot);
 
         if (++_gathersCount >= _quorum)

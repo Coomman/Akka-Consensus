@@ -6,23 +6,23 @@ namespace AkkaNetConsensus.Benchmarks;
 
 public static class Runner
 {
-    public static async Task<TimeSpan> Consensus(int systemSize, int leaderLifetime, double failureProb, bool logMessages)
+    public static async Task<(TimeSpan TimeSpan, int MessagesSent, int DecidesCount)> Consensus(
+        int systemSize, int leaderLifetime, double failureProb, bool logMessages)
     {
         var random = new Random(69);
-        
+
         using var system = ActorSystem.Create("Local");
 
         var actor = system.ActorOf(
             ConsensusActor.Props(systemSize, systemSize / 2 - 1, failureProb, logMessages),
             "Consensus");
 
-        var res = await Routine(random, actor, systemSize, leaderLifetime);
+        var timeSpan = await Routine(random, actor, systemSize, leaderLifetime);
 
-        await Task.Delay(500);
-        actor.Tell(new SentMessagesMsg());
-        await Task.Delay(100);
+        await Task.Delay(5000);
+        var (messagesSent, decidesCount) = await actor.Ask<SentMessagesMsg>(new SentMessagesMsg(0, 0));
 
-        return res;
+        return (timeSpan, messagesSent, decidesCount);
     }
 
     private static async Task<TimeSpan> Routine(Random random, IActorRef actor, int systemSize, int leaderLifetime)

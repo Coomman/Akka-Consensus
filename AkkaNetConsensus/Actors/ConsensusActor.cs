@@ -62,7 +62,9 @@ public class ConsensusActor : ReceiveActor
 
     private void OnSentMessages(SentMessagesMsg message)
     {
-        _logger.Warning($"Sent {(int) _messagesSent.Average()} messages on {_messagesSent.Count} processes");
+        Sender.Tell(new SentMessagesMsg(_messagesSent.Sum(), _messagesSent.Count));
+        
+        //_logger.Warning($"Sent {(int) _messagesSent.Average()} messages on {_messagesSent.Count} processes");
     }
 
     private void Log(string log, LogLevel logLevel)

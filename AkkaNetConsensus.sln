@@ -6,7 +6,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "logs", "logs", "{4B5B9745-5
 	ProjectSection(SolutionItems) = preProject
 		logs\bench_2000_500ms_with-crashes.txt = logs\bench_2000_500ms_with-crashes.txt
 		logs\bench_1000-2000_500ms.txt = logs\bench_1000-2000_500ms.txt
-		logs\bench_1500_500-2000ms.txt = logs\bench_1500_500-2000ms.txt
+		logs\bench_2000_500-2000ms.txt = logs\bench_2000_500-2000ms.txt
 	EndProjectSection
 EndProject
 Global

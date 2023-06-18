@@ -112,6 +112,7 @@ public abstract class SynodActor : ReceiveActor
                 _proposal = _states.MaxBy(x => x.estBallot).est;
             }
 
+            _gathersCount = 0;
             _states = Enumerable.Repeat(0, _n).Select(_ => ((int?)null, 0)).ToArray();
             Broadcast(new ImposeMsg(message.Ballot, _proposal));
         }
@@ -146,6 +147,7 @@ public abstract class SynodActor : ReceiveActor
 
         if (++_acksCount >= _quorum)
         {
+            _acksCount = 0;
             Broadcast(new DecideMsg(_proposal!.Value, _messagesSent));
         }
     }

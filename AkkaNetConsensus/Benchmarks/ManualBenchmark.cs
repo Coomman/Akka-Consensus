@@ -32,7 +32,7 @@ public static class ManualBenchmark
     
     public static async Task RunLeaderLifetimeBench()
     {
-        await using var sw = new StreamWriter(Path.Combine(LogsDirectory, "bench_1500_500-2000ms.txt"));
+        await using var sw = new StreamWriter(Path.Combine(LogsDirectory, "bench_2000_500-2000ms.txt"));
         
         for (int lifetime = 500; lifetime <= 2000; lifetime += 50)
         {
@@ -41,7 +41,7 @@ public static class ManualBenchmark
             
             for (int i = 0; i < Iterations; i++)
             {
-                var result = await Runner.Consensus(1500, lifetime, failureProb: 0, logMessages: false);
+                var result = await Runner.Consensus(2000, lifetime, failureProb: 0, logMessages: false);
                 total += result.TimeSpan.TotalMilliseconds;
             }
             
